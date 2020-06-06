@@ -11,7 +11,7 @@ Author: AC
 ```
 
 ## Solution
-**Note:** *calculations can be found under `XORed.txt` in scripts folder.*
+**Note:** *calculations can be found under `XORed.txt` in `scripts/XORed` folder.*
 
 ```
 Obtain Key 1 ^ Key 2 ^ Key 3 ^ Key 4 ^ Key 5.

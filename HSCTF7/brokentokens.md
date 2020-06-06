@@ -13,17 +13,18 @@ Author: hmmm
 ```
 
 ## Solution
-**Note:** *JWT generation script can be found under `broken_script.py` in scripts folder.*
+**Note:** *JWT generation script can be found under `script.py` in `scripts/brokentokens` folder.*
 
 Highly similar to TJCTF task [Moar Horse 4](https://ctftime.org/writeup/20786).
 
 Looking at the given `main.py`:
 ![](images/broken1.png)
 
-The login form stores an `auth` JSON web token on login. It checks if a specific value in this token, admin, equates to `"admin"` string when decrypted.
+The login form stores a JSON web token (JWT) on login. It checks if a specific value in this token, `auth`, equates to `"admin"` when decrypted.
 We first login using random credentials. 
 ![](images/broken2.png)
-Decoding the `auth` token shows the admin is set to guest, and the JWT algorithm is RS256. RS256 is an asymmetric encryption algorithm, meaning encryption/decryption uses a pair of private and public keys.
+
+Decoding the JWT shows that `auth` is set to guest, and the JWT algorithm is RS256. RS256 is an asymmetric encryption algorithm, meaning encryption/decryption uses a pair of private and public keys.
 The site however does not check the algorithm used. We can exploit this using HS256, a symmetric encryption algorithm
 where encryption/decryption uses the same key, instead. 
 
@@ -48,7 +49,8 @@ print("token : ")
 print(token)
 ```
 
-We can reverse engineer a HS256 encryption digest for the auth JWT token, that the site will decrypt to get admin value to equate to "admin". This allows us to obtain the flag.
+We can engineer a new encrypted `auth` value for the JWT token using HS256. Upon login, we update the value of `auth` to
+the new value in the POST request and resend it. The site will allow us to log in as admin, showing the flag.
 
 ![](images/broken3.png)
 

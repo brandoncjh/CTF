@@ -23,6 +23,10 @@ conduct an XXE injection. We use the injection code as per example below:
 </root>
 ```
 
+Submitting this code on the firmware upload link will give us the contents of `/etc/passwd/`:
+
+![](images/trafficw_etcpasswd.PNG)
+
 Now we need to conduct an SSRF on the web server using the XXE. We notice that the index page contains some interesting information about 
 hostnames and ports:
 ![](images/trafficw1.PNG)

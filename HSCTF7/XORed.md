@@ -14,6 +14,10 @@ Author: AC
 **Note:** *calculations can be found under `XORed.txt` in `scripts/XORed` folder.*
 
 ```
+Use the fundamentals of XOR:
+1 ^ 1 = 0
+1 ^ 0 = 1 (and vice versa)
+
 Obtain Key 1 ^ Key 2 ^ Key 3 ^ Key 4 ^ Key 5.
 (Flag ^ Key 1 ^ Key 2 ^ Key 3 ^ Key 4 ^ Key 5) ^ (Key 1 ^ Key 2 ^ Key 3 ^ Key 4 ^ Key 5) gives the flag in hex format.
 ```

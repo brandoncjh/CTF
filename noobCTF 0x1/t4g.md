@@ -1,4 +1,4 @@
-# Just For Fun
+# #t4g
 
 ## Problem
 

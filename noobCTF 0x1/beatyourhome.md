@@ -42,7 +42,7 @@ We copy the token and decode it on [this site](https://jwt.io/#debugger-io) to s
 ![](images/home3.PNG)
 
 The JWT uses HS256 algorithm, and its data contains an IP address. Remember the source code in the original page? It
-provided the IP address of `localhost`. Also, the challenge name implies that `localhost` has something to do with the 
+provided the IP address of `localhost`. Also, the challenge name (home meaning your own local address) implies that `localhost` has something to do with the 
 solution. So we try changing the IP address in the JWT to `127.0.0.1`:
 
 ![](images/home4.PNG)

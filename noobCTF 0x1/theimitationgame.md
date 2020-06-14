@@ -31,9 +31,11 @@ I 6F 19S
 Ignore
 ```
 
-Swiss-K refers to a variant of the Enigma, an encryption device used in WWII (and plays an important part in the movie bearing the challenge name).
+Swiss-K refers to a variant of the Enigma, an encryption device used in WWII (and plays an important part in the movie 
+bearing the challenge name).
 
-We try using [this site](https://cryptii.com/pipes/swiss-enigma) to decrypt the ciphertext in `game.txt`:
+We try using [this site](https://cryptii.com/pipes/swiss-enigma), along with the key information from the pdf, to decrypt 
+the ciphertext in `game.txt`:
 
 ![](images/imitation3.PNG)
 

@@ -34,12 +34,12 @@ So everything which will be passed as GET parameter will act as variable in php.
 This means the background script of the challenge PHP page prints the value of the variable that is specified by `inp` parameter in the GET request.
 For example, 
 ```
-index.php?inp=welcome
+...index.php?inp=welcome
 
 print_r(${$_GET['inp']}) => print_r($welcome);
 ```
 
-We try to see if other special variables can be called, particularly the [superglobal variables](https://www.php.net/manual/en/language.variables.superglobals.php)
+We try to see if other special variables can be called, particularly the [superglobal variables](https://www.php.net/manual/en/language.variables.superglobals.php).
 For example, let `inp` = `_ENV`, a superglobal variable:
 
 ![](images/getme4.PNG)
@@ -48,4 +48,4 @@ It works! We play around with other superglobal variables and find `_SESSION` co
 
 ![](images/getme5.PNG)
 
-**Flag**: `noob{g00d_hindi_br0}`
+**Flag**: `noob{0h_my_G0dBelieve_it}`

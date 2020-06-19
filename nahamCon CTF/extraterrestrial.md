@@ -15,6 +15,8 @@ http://jh2i.com:50004
 
 Accessing the page, we encounter a form:
 
+***Note**: solved after competition end*
+
 ![](images/extraterrestrial1.PNG)
 
 This is a red flag to conduct XXE injection. We try to submit an SSRF for `/etc/passwd` and it indeed returns us the 

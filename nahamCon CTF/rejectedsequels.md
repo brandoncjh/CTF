@@ -18,15 +18,16 @@ Accessing the link, we get this page that provides a form for searching movie na
 ![](images/sequel1.PNG)
 
 As usual, first we go to the page source to see if we can get any useful information. Indeed, it contains an 
-interesting comment: `<!-- if ( isset($_GET["debug"])){ echo($sql_query); } -->`
+interesting comment: `<!-- if ( isset($_GET["debug"])){ echo($sql_query); } -->`. In our GET requests, we need to set
+the `debug` parameter in order to see the injection output get echo'd.
 
 We try basic SQL injection (`" OR '1'='1`), however it only returns an error message from mySQL. Next we try inserting a mySQL print statement
 `"union(select "hello world" as '')#`. It does show up at the bottom of all the entries, but without the space character.
 
 ![](images/sequel5.PNG)
 
-Eventually we find that inline comment character `/**/` can be used to substitute for spaces in the injection. Now we can 
-try different SQL Injection attacks (mostly union-based).
+Eventually we find that inline comment character `/**/` can be used to [substitute for spaces](https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/#InlineComments)
+in the injection. Now we can try different SQL Injection attacks (mostly union-based).
 
 Payload | Information
 ------- | ------------------

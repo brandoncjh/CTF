@@ -68,7 +68,7 @@ Instead, we can try to bypass `/login` through the `/` endpoint instead. `load_c
 for a cookie `auth`. It is inferred we can spoof our own `auth` that will be accepted as long as it causes an error.
 
 We can thus write an [exploit script](./files/officialbusiness/ofbexploit.py) to generate a fake cookie value (simply no `digest` value)
- that passes the authentication.
+that invokes an error in `load_cookie()` and bypasses the authentication.
 
 On `http://jh2i.com:50006/`, we create an `auth` token via the web console and input the fake value.
 

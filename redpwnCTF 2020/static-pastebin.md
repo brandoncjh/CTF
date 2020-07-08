@@ -44,7 +44,12 @@ function clean(input) {
 
 The function does an improper sanitisation, by counting the tag brackets `<>` in the input. This can easily be bypassed by  
 prepending a close angle bracket `>` to your input thereby setting `brackets` to -1 initially. Any subsequent content within 
-enclosed tags will be processed, allowing us to execute XSS payload.
+enclosed tags will be processed, allowing us to execute XSS payload. We test it out by inputting the code below to the pastebin site:
+```javascript
+><img src=/ onerror=<script>alert(123)</script>></img>
+```
+
+![](images/staticpaste2a.PNG)
 
 Another important observation from the pastebin site: it takes the submitted input, encodes it with Base64 and appends
 it to the back of the URL `https://static-pastebin.2020.redpwnc.tf/paste/#`.  For example, by submitting `hello` on the 

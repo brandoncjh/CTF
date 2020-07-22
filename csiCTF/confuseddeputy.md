@@ -21,7 +21,7 @@ will visit a page URL that we give him, and also a `colour` input for the admin 
 
 Immediately I thought of using reflected XSS to steal admin's cookie just like in redpwnCTF's `static-pastebin`. However
 the sanitisation here would obviously be different, so we should examine the sanitisation function more in-depth via the
- source code of `/view`.
+[source code](files/confuseddeputy/sourcecode.txt) of `/view`.
 
 ```javascript
 <script>

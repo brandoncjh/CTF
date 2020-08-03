@@ -26,7 +26,7 @@ but it returns an error instead:
 
 The server adds a `.php` extension to the back of whatever we input to `page` parameter. [Searching online](images/bitemisc1.PNG) reveals that to 
 bypass this, we just need to add a *null byte* (`%00` in Unicode) to the back of our `page`. This allows us to escape the 
-additional `.php` extension.
+additional `.php` extension and exploit LFI now.
 
 <img src= "images/bite4.PNG" width="400">
 

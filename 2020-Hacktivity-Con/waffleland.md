@@ -11,6 +11,8 @@ http://jh2i.com:50024
 
 ## Solution
 
+***Note**: solved after competition end*
+
 We are taken to a page advertising different waffles. There seems to be a login section, for which we don't have any credentials.
 The main page has a search bar which we can use to search for entries containing input. 
 
@@ -95,7 +97,7 @@ select * from product where name like '' and 0=1/**/union/**/select/**/1,usernam
 (1)                                                             (2)
 ```
 (1) This `select` selects all entries from the `product` table and filters out entries that satisfy `0=1`. Since that is 
-universally false, all the waffle entries will be filtered out.
+universally false, all the waffle entries will be filtered out.\
 (2) This `select` selects all entries from the `user` table and returns their `username` and `password` attributes in the
 2nd and 3rd column.
 

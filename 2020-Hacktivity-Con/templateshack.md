@@ -24,13 +24,17 @@ find a JWT cookie named `token`.
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Imd1ZXN0In0.9SvIFMTsXt2gYNRF9I0ZhRhLQViY-MN7VaUutz9NA9Y
 ```
-We can use [this site]() to decode the JWT token and get the information within the token.
+We can use [this site](https://jwt.io) to decode the JWT token and get the information within the token.
+
+![](images/templateshacktoken1.PNG)
 
 The next step involves cracking the secret contained within the token. This would allow us to forge our own custom token.
 Using John the Ripper:
 
-we obtain the secret value `supersecret`. We can then forge a custom JWT token with `username` attribute set to `admin`.
-This would allow us to access the `/admin` endpoint, through a new button `Admin` at the top right.
+![](images/templateshacktoken2.PNG)
+
+we obtain the secret value `supersecret`. We can then [forge a custom JWT token](images/templateshacktoken3.PNG) with `username` attribute set to `admin`.
+Inputting this new value into `token` would allow us to access the `/admin` endpoint, through a new button `Admin` at the top right.
 
 ![](images/templateshack3.png)
 

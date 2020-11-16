@@ -11,3 +11,4 @@ A collection of past CTF writeups.
 * [uiuCTF](./uiuCTF) (17/07/2020 - 19/07/2020)
 * [csiCTF](./csiCTF) (18/07/2020 - 22/07/2020)
 * [HacktivityCon CTF](./2020-Hacktivity-Con) (30/07/2020 - 01/08/2020)
+* [SquareCTF 2020](./2020-SquareCTF) (14/11/2020 - 15/11/2020)

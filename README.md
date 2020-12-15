@@ -12,3 +12,4 @@ A collection of past CTF writeups.
 * [csiCTF](./csiCTF) (18/07/2020 - 22/07/2020)
 * [HacktivityCon CTF](./2020-Hacktivity-Con) (30/07/2020 - 01/08/2020)
 * [SquareCTF 2020](./2020-SquareCTF) (14/11/2020 - 15/11/2020)
+* [Stack the Flags 2020](./2020-StackTheFlags) (04/12/2020 - 06/12/2020)

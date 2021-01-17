@@ -18,17 +18,17 @@ Inspecting `api.js` further, we find that the `/login` route using POST contains
 
 ### API Control Flow
 1. User sends a POST request to http://yhi8bpzolrog3yw17fe0wlwrnwllnhic.alttablabs.sg:41061/api/login, along with the parameters for `username` and `password` in the request body.
-2. The API application checks if `username` and `password` exists, using the validation and authentication scripts in the [middlewares](../middlewares) folder of the source code.
+2. The API application checks if `username` and `password` exists, using the validation and authentication scripts in the [middlewares](./files/loggedin/source/middlewares) folder of the source code.
 
 ![](images/loggedin1.PNG)
 
-Specifically, the validation check in [validators.js](../middlewares/validators.js) is performed by calling the function `validationResult` from `express-validator` package, which uses the validation criteria specified by the `check('xxx')` function, in `const loginValidator`. If both the `username` and `password` parameters exist, `validationResult` will return will no errors, and the program will continue it's flow.
+Specifically, the validation check in [validators.js](./files/loggedin/source/middlewares/validators.js) is performed by calling the function `validationResult` from `express-validator` package, which uses the validation criteria specified by the `check('xxx')` function, in `const loginValidator`. If both the `username` and `password` parameters exist, `validationResult` will return will no errors, and the program will continue it's flow.
 
 ![](images/loggedin2a.PNG)
 
 If either one does not exist, a Status 400 error will be returned, stating that specific parameters were invalid.
 
-3. Following the flow after sendValidationErrors returns no errors, `loginAuthenticator` in [authenticators.js](../middlewares/authenticators.js) will be executed.
+3. Following the flow after sendValidationErrors returns no errors, `loginAuthenticator` in [authenticators.js](./files/loggedin/source/middlewares/authenticators.js) will be executed.
 
 ![](images/loggedin3.PNG)
 
@@ -51,7 +51,7 @@ This means that by specifying the `username` and `password` parameters with no v
 
 After bypassing the validators, we still have to get past the authenticator functions. But how does that happen with our emtpy inputs? As the `null` parameters are passed into the authentication function, `passport.authenticate` will attempt to authenticate a user based on the `username` parameter. However, as both credentials are `null`, the application is unable to retrieve a valid user model (from db or storage), and does not return an error. This flows the execution down toward the `next()` function which flows back to `router.post` and executes the supposedly authenticated code, returning to us the flag.
 
-![](images/loggedinflag.PNG)
+![](images/loggedinflagv2.jpg)
 
 ### Proposed Patches (cr: redfl4g)
 
@@ -86,6 +86,7 @@ function localAuthenticator(req, res, next) {
 This challenge involved learning the basics about ExpressJS Middleware as well as dissecting the code to understand it's processing functions from external libraries.
 
 The main vulnerability in this challenge was the improper use of an external library ([express-validator](https://express-validator.github.io/)) that attempts to validate request parameters/user inputs. With improper validation, users are able to bypass the login authenticator function, which led to the flow of execution to sections where only (supposedly) authenticated users are allowed to execute.
+
 
 **Flag**: `govtech-csg{m!sS1nG_cR3DeN+!@1s}`
 

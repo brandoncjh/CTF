@@ -145,10 +145,6 @@ Looking at the list of reserved characters for URLs, we come across `#`, which s
 
 ![](images/breakingfree4.png)
 
-<img src= "images/breakingfreeflag.PNG" width = "400">
-
-![](images/breakingfreeflag.PNG)
-
 **Flag**: `govtech-csg{ReQu3$t_h34D_0R_G3T?}`
 
 &nbsp;
@@ -156,3 +152,8 @@ Looking at the list of reserved characters for URLs, we come across `#`, which s
 #### References:
 * [Spread operator `...`](https://davidwalsh.name/merge-objects)
 * [Anchor tags](https://www.quora.com/What-does-a-hashtag-at-the-end-of-a-URL-do)
+
+---
+
+**Note:** This python script works as well:
+![](images/breakingfreeflag.PNG)
